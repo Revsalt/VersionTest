@@ -1,1 +1,11 @@
-Cool MultiGame
+MAP UPDATES :
+	*New Map2
+
+CHARACTER UPDATES :
+	*Fixed wall grab angle (NinjaCat) 
+	*added a head bob when touch a roof to (Player Controller) 
+	*Added the hoodieCat first attack
+
+GENERAL : 
+	*Tag feedback
+	*Added the HoodieCat first attack
