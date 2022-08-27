@@ -1,9 +1,6 @@
-MAP UPDATES :
-*New Map2
 CHARACTER UPDATES :
-*Fixed wall grab angle (NinjaCat) 
-*added a head bob when touch a roof to (Player Controller) 
-*Added the hoodieCat first attack
+*HoodieCat Implemented
 GENERAL : 
-*Tag feedback
-*Added the HoodieCat first attack
+*Taggers now have red names
+*Adjust Sentivity with scrollWeel
+*Decreased the Tagger's Tag radius
