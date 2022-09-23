@@ -1,6 +1,4 @@
 CHARACTER UPDATES :
-*HoodieCat Implemented
+*BeetCatin
 GENERAL : 
-*Taggers now have red names
-*Adjust Sentivity with scrollWeel
-*Decreased the Tagger's Tag radius
+*new Game mode
