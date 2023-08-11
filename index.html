@@ -16,66 +16,103 @@
         }
 </style>
 
-<body style="background-image: url('FS000_Day_05_Sunless.png');">
+<body style="background-image: url('FS000_Day_05_Sunless.png'); margin-left: 20px;">
 
-<div class="row">
-
-    <div class="column-2">
-        <div class="w3-container">
-            <video src="loading.mp4" autoplay muted loop>
-        </div>
-    </div>
-
-    <div class="column-2">
-        <div class="w3-container">
-            <img src="background.PNG" style="width: 100%; margin-top: 10px; border-style: solid; border-color: white;">
-        </div>
-    </div>
-
-    <div class="column">
-        <div class="w3-container">
-            <h1 style="color: white;">
-                New Updates :
-            </h1>
-        </div>
-
-        <div class="w3-container">
-        <p style="color: white;">
-            > Baked The SplatoonLikeMap , IslandMap
-            <br>
-            > PhyicsAdjustments (ground friction has no increased)
-            <br>
-            > dont believe everything you read online
-        </p>
-        </div>
-
-        <div class="w3-container">
-            <h1 style="color: white;">
-                Kimitsu :
-            </h1>
-        </div>
-
-        <div class="w3-container">
-        <p style="color: white;">
-            > kimitsu now when he is on a wall for longer than 2s, will start to slide down gradually.
-            <br>
-            >the sakura beeze cooldown has increased by double (2s -> 4s).
-        </p>
-        </div>
-    </div>
-    
+<div>
+    <img name="slide" id="myAnimation" style="position: relative; 
+     margin: 10px; padding: 0;
+     width: 100%; border-style: solid;
+      border-color: white;">
 </div>
-
-<div class="row">
-
-    <div class="column">
-        <div class="w3-container">
-            <img src="kimitsu.PNG" style="width: 100%; margin-top: 10px; border-style: solid; border-color: white;">
-        </div>
-    </div>
-    
-</div>
-
 </body>
+
+<script>
+    
+    var i = 0; 			// Start Point
+var images = [];	// Images Array
+var time = 3000;	// Time Between Switch
+	 
+// Image List
+images[0] = "background.PNG";
+images[1] = "Capture.PNG";
+images[2] = "Capture2.PNG";
+images[3] = "kimitsu.PNG";
+
+// Change Image
+function changeImg(){
+
+    var elem = document.getElementById("myAnimation");   
+    elem.style.opacity = 1;
+
+	document.slide.src = images[i];
+
+	// Check If Index Is Under Max
+	if(i < images.length - 1){
+	  // Add 1 to Index
+	  i++; 
+	} else { 
+		// Reset Back To O
+		i = 0;
+	}
+
+    setTimeout("myMove(true)" , 30);
+
+    setTimeout("myMove(false)" , time);
+	// Run function every x seconds
+	setTimeout("changeImg()", time + time);
+}
+
+// Run function when page loads
+window.onload=changeImg;
+
+
+var pos = 1;
+var id = null;
+
+function myMove(fade) {
+  var elem = document.getElementById("myAnimation");   
+  var opacity = 0;
+  clearInterval(id);
+
+  if (fade)
+  {
+    pos = -1000;
+    id = setInterval(framein, 10);
+  }
+  else
+  {
+    pos = 0;
+    id = setInterval(frameout, 10);
+  }
+
+  function framein() {
+    if (pos != 0)
+    {
+        pos += 10;
+        elem.style.left = pos + 'px'; 
+    }
+    else 
+    {
+        clearInterval(id);
+        
+    }
+  }
+
+  function frameout() {
+    if (pos < 1000)
+    {
+        pos += 10;
+        elem.style.left = pos + 'px'; 
+    }
+    else 
+    {
+        clearInterval(id);
+        
+    }
+  }
+}
+
+
+    </script>
 
 </html>
